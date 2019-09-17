@@ -1,0 +1,28 @@
+<div class="container">
+    <div class="row pt-5">
+        <div class="col-md-12 col-lg-12 col-sm-12 bg-light">
+            <form [formGroup]="editorForm" (keydown.enter)="$event.preventDefault()">
+                <div class="form-group">
+                    <label for="exampleInputEmail1">
+                        <i class="fa fa-github fa-3x"></i>
+                    </label>
+                    <input type="text" class="form-control" id="inputTitle" aria-describedby="emailHelp" placeholder="Enter github repo link">
+                    <small id="emailHelp" class="form-text text-muted">For eg. https://github.com/tmtanzeel/social-coder</small>
+                    <br>
+                    <label for="editor">
+                        <h3>File path</h3>
+                        <h6 class="form-text text-muted">Your local file path</h6>
+                    </label>
+                    <input type="text" class="form-control" id="inputTitle" aria-describedby="emailHelp" placeholder="E:/myfiles/file.txt">
+                </div>
+                <h3>Choose tools</h3>
+                <select class="custom-select" multiple formControlName="toolName">
+                    <option value="">You can choose multiple tools</option>
+                    <option *ngFor="let tool of Tools" [ngValue]="tool" (change)="changeTool($event)">{{tool}}
+                    </option>
+                </select>
+                <button class="btn btn-primary mt-3 mb-3" (click)="onSubmit()">Submit</button>
+            </form>
+        </div>
+    </div>
+</div>
